@@ -1,0 +1,104 @@
+$color-1 : #f5dd7e;
+$color-2 : #0db2ac;
+$color-3 : #fc8d4d;
+$color-4 : #fc694d;
+$color-5 : #faba32;
+$color-6 : #f3f3f3;
+
+.login{
+  width: 100%;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  margin-top: 160px;
+}
+  
+.logo{
+  position: fixed;
+  margin-top: -70px;
+  height: 100px;
+  width: 100px;
+}
+
+.form{
+  background: $color-2;
+  padding: 20px;
+
+    h2{
+      text-align: center;
+      color: $color-6;
+      text-transform: uppercase;
+    }
+}
+
+.input:focus ~ .placeholder {
+  color: $color-6;
+}
+
+.input-container {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  position: relative;
+  width: 100%;
+  
+  .placeholder {
+    color: $color-2;
+    font-family: sans-serif;
+    left: 20px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 15px;
+  }
+
+  .input{
+    background-color: #E8F0Fe;;
+    opacity: .8;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #323232;
+    padding-left: 18px;
+    font-size: 18px;
+    height: 40px;
+    outline: 0;
+    width: 100%;
+  }
+
+  .input:focus ~ .cut, 
+  .input:not(:placeholder-shown) ~ .cut {
+      transform: translateY(8px);
+  }
+
+  .input:focus ~ .placeholder,
+  .input:not(:placeholder-shown) ~ .placeholder {
+    transform: translateY(-30px) translateX(-10px) scale(0.75);
+  }
+
+  .input:not(:placeholder-shown) ~ .placeholder {
+    color: $color-6;
+  }
+
+}
+
+.div-button{
+  flex-direction: column-reverse;
+  display: flex;
+
+  .input-button{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid gray;
+    cursor: pointer;
+  }
+  
+  .input-button:hover{
+    background: $color-4;
+  }
+  
+  .input-button:active{
+    background: $color-5;
+  }
+}
