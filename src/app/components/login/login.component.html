@@ -9,17 +9,17 @@
         <form>  
 
           <div class="input-container">
-            <input class="input" placeholder=" " type="email" name="correo" required>
-            <label class="placeholder" for="correo">Correo</label>    
+            <input class="input" [(ngModel)]="this.user"  placeholder=" " type="text" name="correo" required>
+            <label class="placeholder" for="correo">Usuario</label>    
           </div>
  
           <div class="input-container">
-            <input class="input" placeholder=" " type="password" name="pass" #passInput required minlength="8">
+            <input class="input" [(ngModel)]="pass" placeholder=" " type="password" name="pass" #passInput required minlength="8">
             <label class="placeholder" for="pass">Contraseña</label>
           </div>
 
           <div class="div-button">
-              <input class="input-button" value="Ingresar" type="submit">
+              <input class="input-button" (click)="login()" value="Ingresar" type="submit">
           </div>
           
         </form>
