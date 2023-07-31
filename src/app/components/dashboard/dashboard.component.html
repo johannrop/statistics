@@ -9,13 +9,26 @@
     <input type="file" (change)="onFileSelected($event)" accept=".csv">
   </div>
 
+  <section class="section-res">
+    <div class="rest">
+      <p>El estado con menor acomulado a la fecha es <span>{{minEs}}</span> con un total de <span>{{minVal}}</span> muertes.</p>
+    </div>
+  
+    <div class="rest">
+      <p>El estado con mayor acomulado a la fecha es <span>{{maxEs}}</span> con un total de <span>{{maxVal}}</span> muertes.</p>
+    </div>
+  
+    <div class="rest">
+      <p>El estado mas afectado a la fecha es <span>{{estateBad}}</span> ya que posee un porcentaje de mortalidad vs poblacion del <span>{{estateBadVal}}%</span> siendo el mas alto de todos los estados.</p>
+    </div>
+  </section>
 
-  <div *ngIf="csvData">
+  <!-- <div *ngIf="csvData">
     <h3>Datos del archivo .csv:</h3>
     <ul>
       <li *ngFor="let item of csvData">{{ item | json }}</li>
     </ul>
-  </div> 
+  </div>  -->
 
 <app-data-display *ngIf="fileUploaded" [csvData]="csvData"></app-data-display>
    
