@@ -1,0 +1,30 @@
+$color-1 : #f5dd7e;
+$color-2 : #0db2ac;
+$color-3 : #fc8d4d;
+$color-4 : #fc694d;
+$color-5 : #faba32;
+$color-6 : #f3f3f3;
+
+section{
+    background: $color-2;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 40px;
+    border-bottom: 1px solid $color-1;
+    
+    li{
+        cursor: pointer;
+        list-style:none;
+        font-style: none;
+        text-decoration: none;
+    }
+
+    a{
+        color: $color-6;
+        margin: 10px;
+        border-bottom: 1px solid $color-6;
+    }
+}

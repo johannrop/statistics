@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { authGuardFtn } from './guards/auth-fn.guard';
+import { authGuardHd } from './guards/auth-fn.guard';
+import { HeaderComponent } from './components/header/header.component';
 
 const routes: Routes = [
   {
@@ -12,6 +14,11 @@ const routes: Routes = [
   {
     path:'app-login', 
     component:LoginComponent
+  },
+  {
+    path:'app-header', 
+    component:HeaderComponent,
+    canActivate: [authGuardHd]
   },
   {
     path:'app-dashboard',
