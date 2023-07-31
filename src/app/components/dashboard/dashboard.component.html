@@ -1,2 +1,22 @@
-<p>dashboard works!</p>
+<!-- dashboard.component.html -->
+<div *ngIf="fileUploaded">
+        <label for="file">Cambiar de archivo CSV</label>
+        <input  type="file" name="file" (change)="onFileSelected($event)" accept=".csv">
+  </div>
+
+<div *ngIf="!fileUploaded">
+    <label for="file">Subir archivo CSV</label>
+    <input type="file" (change)="onFileSelected($event)" accept=".csv">
+  </div>
+
+
+  <div *ngIf="csvData">
+    <h3>Datos del archivo .csv:</h3>
+    <ul>
+      <li *ngFor="let item of csvData">{{ item | json }}</li>
+    </ul>
+  </div>
+  
+<app-data-display *ngIf="fileUploaded" [csvData]="csvData"></app-data-display>
+  
 

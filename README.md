@@ -1,3 +1,9 @@
+# Dependencies
+Installed library "Papa Parse" for analizer the archive CSV
+`npm install ngx-papaparse@7 --save`
+
+
+
 # Statistics
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.

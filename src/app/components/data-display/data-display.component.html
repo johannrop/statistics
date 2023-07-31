@@ -1,0 +1,8 @@
+<!-- data-display.component.html -->
+<div *ngIf="csvData">
+    <h3>Datos del archivo .csv:</h3>
+    <ul>
+      <li *ngFor="let item of csvData">{{ item | json }}</li>
+    </ul>
+  </div>
+  
