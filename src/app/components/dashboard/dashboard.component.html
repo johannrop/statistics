@@ -15,8 +15,8 @@
     <ul>
       <li *ngFor="let item of csvData">{{ item | json }}</li>
     </ul>
-  </div>
-  
+  </div> 
+
 <app-data-display *ngIf="fileUploaded" [csvData]="csvData"></app-data-display>
-  
+   
 

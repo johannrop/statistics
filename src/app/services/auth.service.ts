@@ -21,10 +21,12 @@ export class AuthService {
    */
   authentication(username: string, password: string) {
     if (username === this.burnedUser.username && password === this.burnedUser.password){
-      this.token.saveToken("123456789");
+      this.token.saveToken("token");
       this.router.navigate(['/app-dashboard']);
-
+    }else{
+      alert("Contraseña o usuario incorrectos")
     }
+
   }
 
 }

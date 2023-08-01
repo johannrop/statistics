@@ -1,8 +1,6 @@
 # Dependencies
-Installed library "Papa Parse" for analizer the archive CSV
-`npm install ngx-papaparse@7 --save`
-
-
+Implemented library [PapaParse] (https://www.papaparse.com/docs#results) for analizer the archive CSV:
+Run `npm install ngx-papaparse@7 --save` for install library.
 
 # Statistics
 
