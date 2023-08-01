@@ -77,11 +77,11 @@ export class LoadDataService {
               deaths : data[this.head]
             };
             //console.log("json" + JSON.stringify(data))
-            console.log(" - state: " + data.Province_State + " - population: " + data.Population + " - deaths: " + data[this.head])            
+            //console.log(" - state: " + data.Province_State + " - population: " + data.Population + " - deaths: " + data[this.head])            
             this.newCSV.push(newData);
           });
 
-          //save the data in local storage
+          //save the data in local storage 
           localStorage.setItem(this.localStorageKey, JSON.stringify(this.newCSV));
           //set data to event Observer
           observer.next(this.newCSV);
