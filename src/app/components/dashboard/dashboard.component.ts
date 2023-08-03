@@ -26,12 +26,11 @@ export type ChartOptions = {
 export class DashboardComponent implements OnInit{
 
   chartOptions!: ChartOptions;
-  
 
-  //start graph
-  
-  //end graph
 
+  labels: any;
+  data: any;
+  popu: any
 
   
 
@@ -48,23 +47,26 @@ export class DashboardComponent implements OnInit{
   csvData!: any[];
   dataGra!: any[];
 
+  constructor(private loadDataService: LoadDataService,
+    ) {}
 
   ngOnInit() {
+
+      
     this.csvData = this.loadDataService.getCsvData();
     this.sumState();
     this.sumPopulation();
     this.stateAfected();
+    this.load();
+
+
     this.fileUploaded = !!this.csvData;
     //start graph
     this.chartOptions = {
-      series: [
-        {
-          name: "STOCK ABC",
-          data: series.monthDataSeries1.prices
-        }
-      ],
+      series: this.data
+      ,
       chart: {
-        type: "area",
+        type: "polarArea",
         height: 350,
         zoom: {
           enabled: false
@@ -78,16 +80,17 @@ export class DashboardComponent implements OnInit{
       },
 
       title: {
-        text: "Fundamental Analysis of Stocks",
-        align: "left"
+        text: "Deaths for covid in EUA",
+        align: "center"
       },
       subtitle: {
-        text: "Price Movements",
-        align: "left"
+        text: "Paffected states",
+        align: "left",
+        
       },
-      labels: series.monthDataSeries1.dates,
+      labels: this.labels,
       xaxis: {
-        type: "datetime"
+        categories: this.data
       },
       yaxis: {
         opposite: true
@@ -101,10 +104,15 @@ export class DashboardComponent implements OnInit{
     
   }
 
-  constructor(private loadDataService: LoadDataService,
-    ) {
-      
-  }
+
+  
+
+   load(){
+     this.labels = this.dataGra.map((item) => item.state);
+     console.log("///////////// " + this.labels)
+     this.data = this.dataGra.map((item) => item.deaths);
+     this.popu = this.dataGra.map((item) => item.population);
+   }
 
   sumState(): { [state: string]: number } {
     /**
