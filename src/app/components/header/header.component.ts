@@ -21,4 +21,12 @@ export class HeaderComponent {
     this.router.navigate(['/app-login']);
   }
 
+  me(){
+    this.router.navigate(['/app-me']);
+  }
+
+  dashboard(){
+    this.router.navigate(['/app-dashboard']);
+  }
+
 }

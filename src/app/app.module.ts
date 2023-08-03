@@ -9,6 +9,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DataDisplayComponent } from './components/data-display/data-display.component';
 import { NgApexchartsModule } from "ng-apexcharts";
+import { MeComponent } from './components/me/me.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NgApexchartsModule } from "ng-apexcharts";
     LoginComponent,
     DashboardComponent,
     HeaderComponent,
-    DataDisplayComponent    
+    DataDisplayComponent,
+    MeComponent    
   ],
   imports: [
     BrowserModule,

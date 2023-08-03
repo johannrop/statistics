@@ -1,7 +1,6 @@
 import { Component, ViewChild, OnInit} from '@angular/core';
 import { ApexAxisChartSeries, ApexChart, ApexXAxis, ApexStroke, ApexDataLabels, ApexYAxis, ApexTitleSubtitle, ApexLegend } from 'ng-apexcharts';
 import { LoadDataService } from 'src/app/services/load-data.service';
-import { series } from './datos-ejemplo';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -80,11 +79,11 @@ export class DashboardComponent implements OnInit{
       },
 
       title: {
-        text: "Deaths for covid in EUA",
+        text: "MUERTES POR COVID EN EUA",
         align: "center"
       },
       subtitle: {
-        text: "Paffected states",
+        text: "Grafica:",
         align: "left",
         
       },
@@ -109,7 +108,6 @@ export class DashboardComponent implements OnInit{
 
    load(){
      this.labels = this.dataGra.map((item) => item.state);
-     console.log("///////////// " + this.labels)
      this.data = this.dataGra.map((item) => item.deaths);
      this.popu = this.dataGra.map((item) => item.population);
    }
@@ -130,7 +128,6 @@ export class DashboardComponent implements OnInit{
       }
     });
 
-    //console.log(sumasPorEstado);
 
     let maxState: string | null = null;
     let maxValue = Number.MIN_SAFE_INTEGER;
@@ -156,10 +153,6 @@ export class DashboardComponent implements OnInit{
     this.minEs = minState;
     this.minVal = minValue.toString();
 
-    console.log(`El estado con el menor taza demotarlidad  es ${minState} con un valor de ${minValue}.`);
-
-    console.log(`El state con la mayor taza de motarlidad es ${maxState} con un valor de ${maxValue}.`);
-
     return sumasPorEstado;
   }
 
@@ -180,7 +173,6 @@ export class DashboardComponent implements OnInit{
       }
     });
 
-    //console.log(sumPopulation);
     return sumPopulation;
   }
 
@@ -213,14 +205,10 @@ export class DashboardComponent implements OnInit{
     
   }
   this.dataGra = dataForGraphic;
-  //console.log('///****** ' + JSON.stringify(dataForGraphic) );  
-  // console.log(JSON.stringify(affectedPopulation))
 
   const stateMax = affectedPopulation.reduce((max, stateCurrent) => {
     return stateCurrent.value > max.value ? stateCurrent : max;
-  }, affectedPopulation[0]); // Inicializamos estadoMayor con el primer elemento del array
-  console.log(stateMax); 
-  console.log(JSON.stringify(this.dataGra))
+  }, affectedPopulation[0]); // ininitialice in position 0
   this.estateBad  = stateMax.state;
   this.estateBadVal= (stateMax.value).toString();
 }

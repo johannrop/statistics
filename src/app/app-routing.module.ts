@@ -5,6 +5,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { authGuardFtn } from './guards/auth-fn.guard';
 import { authGuardHd } from './guards/auth-fn.guard';
 import { HeaderComponent } from './components/header/header.component';
+import { MeComponent } from './components/me/me.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,11 @@ const routes: Routes = [
     path:'app-login', 
     component:LoginComponent
   },
+  {
+    path:'app-me',
+    component:MeComponent
+  },
+  
   {
     path:'app-header', 
     component:HeaderComponent,
