@@ -22,7 +22,7 @@ import { NgApexchartsModule } from "ng-apexcharts";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgApexchartsModule
+    NgApexchartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

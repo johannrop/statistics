@@ -1,9 +1,28 @@
-# COVID-19 Death Statistics Project in the United States
-This is a project developed with Angular that shows death statistics from COVID-19 in the states of the United States. The project uses real data to present relevant information about deaths from COVID-19 in different states.
+# COVID-19 Death Statistics Project in the United States<br>
+This is a project developed with Angular that shows death statistics from COVID-19 in the states of the United States.<br>
+The project uses real data to present relevant information about deaths from COVID-19 in different states.<br>
 
 # Dependencies
-Implemented library [PapaParse] (https://www.papaparse.com/docs#results) for analizer the archive CSV:
-Run `npm install ngx-papaparse@7 --save` for install library.
+Implemented library [PapaParse] (https://www.papaparse.com/docs) for analizer the archive CSV:<br>
+
+Run `npm install ngx-papaparse@7 --save` for install library.<br>
+
+Implemented library [ApexCharts] (https://apexcharts.com/docs/angular-charts/) for graphic the JSON.:
+
+Run `npm install apexcharts ng-apexcharts --save ` for install library.
+
+angular.json
+buid...
+"scripts": [ 
+    "node_modules/apexcharts/dist/apexcharts.min.js"
+    ]
+"options": {
+            "allowedCommonJsDependencies": [
+              "apexcharts"
+           ],
+
+
+
 
 # Statistics
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.

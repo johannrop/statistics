@@ -22,13 +22,26 @@
       <p>El estado mas afectado a la fecha es <span>{{estateBad}}</span> ya que posee un porcentaje de mortalidad vs poblacion del <span>{{estateBadVal}}%</span> siendo el mas alto de todos los estados.</p>
     </div>
   </section>
+ 
+ 
+  <!-- {{chartOptions | json}} -->
 
-  <!-- <div *ngIf="csvData">
-    <h3>Datos del archivo .csv:</h3>
-    <ul>
-      <li *ngFor="let item of csvData">{{ item | json }}</li>
-    </ul>
-  </div>  -->
+  <div id="chart">
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [stroke]="chartOptions.stroke"
+      [dataLabels]="chartOptions.dataLabels"
+      [yaxis]="chartOptions.yaxis"
+      [labels]="chartOptions.labels"
+      [legend]="chartOptions.legend"
+      [title]="chartOptions.title"
+      [subtitle]="chartOptions.subtitle"
+    ></apx-chart>
+  </div>
+  
+
 
 <app-data-display *ngIf="fileUploaded" [csvData]="csvData"></app-data-display>
    

@@ -1,26 +1,20 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit} from '@angular/core';
+import { ApexAxisChartSeries, ApexChart, ApexXAxis, ApexStroke, ApexDataLabels, ApexYAxis, ApexTitleSubtitle, ApexLegend } from 'ng-apexcharts';
 import { LoadDataService } from 'src/app/services/load-data.service';
-import { ChartComponent } from "ng-apexcharts";
-
-import {
-  ApexNonAxisChartSeries,
-  ApexResponsive,
-  ApexChart
-} from "ng-apexcharts";
+import { series } from './datos-ejemplo';
 
 export type ChartOptions = {
-  series: ApexNonAxisChartSeries;
+  series: ApexAxisChartSeries;
   chart: ApexChart;
-  responsive: ApexResponsive[];
-  labels: any;
+  xaxis: ApexXAxis;
+  stroke: ApexStroke;
+  dataLabels: ApexDataLabels;
+  yaxis: ApexYAxis;
+  title: ApexTitleSubtitle;
+  labels: string[];
+  legend: ApexLegend;
+  subtitle: ApexTitleSubtitle;
 };
-
-
-interface DataItem {
-  Province_State: string;
-  Population: string;
-  deaths: string;
-}
 
 @Component({
   selector: 'app-dashboard',
@@ -29,9 +23,17 @@ interface DataItem {
 })
 
 
-export class DashboardComponent {
-  public chartOptions!: ChartOptions;
+export class DashboardComponent implements OnInit{
 
+  chartOptions!: ChartOptions;
+  
+
+  //start graph
+  
+  //end graph
+
+
+  
 
   minEs: any = '';
   minVal: string = '';
@@ -53,20 +55,55 @@ export class DashboardComponent {
     this.sumPopulation();
     this.stateAfected();
     this.fileUploaded = !!this.csvData;
+    //start graph
+    this.chartOptions = {
+      series: [
+        {
+          name: "STOCK ABC",
+          data: series.monthDataSeries1.prices
+        }
+      ],
+      chart: {
+        type: "area",
+        height: 350,
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: "straight"
+      },
+
+      title: {
+        text: "Fundamental Analysis of Stocks",
+        align: "left"
+      },
+      subtitle: {
+        text: "Price Movements",
+        align: "left"
+      },
+      labels: series.monthDataSeries1.dates,
+      xaxis: {
+        type: "datetime"
+      },
+      yaxis: {
+        opposite: true
+      },
+      legend: {
+        horizontalAlign: "left"
+      }
+    };
+    //end graph
+    
+    
   }
 
   constructor(private loadDataService: LoadDataService,
     ) {
       
-    }
-
-  
-
-
-  
-  
-  graphic(){
-    
   }
 
   sumState(): { [state: string]: number } {
@@ -163,8 +200,6 @@ export class DashboardComponent {
         }
         dataForGraphic.push(dataGrap);
         affectedPopulation.push(stateUpdateObj);
-        
-       
         };
     }  
     
@@ -177,6 +212,7 @@ export class DashboardComponent {
     return stateCurrent.value > max.value ? stateCurrent : max;
   }, affectedPopulation[0]); // Inicializamos estadoMayor con el primer elemento del array
   console.log(stateMax); 
+  console.log(JSON.stringify(this.dataGra))
   this.estateBad  = stateMax.state;
   this.estateBadVal= (stateMax.value).toString();
 }
@@ -186,10 +222,11 @@ export class DashboardComponent {
     if (file) {
       this.loadDataService.processCSVFile(file).subscribe((data) => {
         this.csvData = data;
-        this.fileUploaded = true;
+        this.fileUploaded = true;    
+        window.location.reload()
       });
     }
-    window.location.reload();
+    
   }
 
   }
